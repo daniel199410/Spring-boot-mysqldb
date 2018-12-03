@@ -1,6 +1,7 @@
 package com.example.springbootmysqldb.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Users{
@@ -13,6 +14,8 @@ public class Users{
     private int salary;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private UsersContact usersContact;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Queries> queries;
 
     public Users(long user_id) {
         this.id = user_id;
@@ -60,5 +63,15 @@ public class Users{
 
     public void setUsersContact(UsersContact usersContact) {
         this.usersContact = usersContact;
+    }
+
+    public List<Queries> getQueries() {
+        return queries;
+    }
+
+    public void setQueries(List<Queries> queries) {
+        for(Queries query: queries) {
+            this.queries.add(query);
+        }
     }
 }
