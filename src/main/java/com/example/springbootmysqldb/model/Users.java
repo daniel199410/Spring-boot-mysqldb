@@ -1,12 +1,9 @@
 package com.example.springbootmysqldb.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Users {
+public class Users{
     @Id
     @GeneratedValue
     private long id;
@@ -14,6 +11,16 @@ public class Users {
     @Column(name = "team_name")
     private String teamName;
     private int salary;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private UsersContact usersContact;
+
+    public Users(long user_id) {
+        this.id = user_id;
+    }
+
+    public Users() {
+
+    }
 
     public long getId() {
         return id;
@@ -45,5 +52,13 @@ public class Users {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public UsersContact getUsersContact() {
+        return usersContact;
+    }
+
+    public void setUsersContact(UsersContact usersContact) {
+        this.usersContact = usersContact;
     }
 }
