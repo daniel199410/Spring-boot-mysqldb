@@ -12,6 +12,10 @@ public class Users{
     @Column(name = "team_name")
     private String teamName;
     private int salary;
+    private String userName;
+    private String password;
+    private boolean isActive;
+    private byte rol;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private UsersContact usersContact;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -73,5 +77,37 @@ public class Users{
         for(Queries query: queries) {
             this.queries.add(query);
         }
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public byte getRol() {
+        return rol;
+    }
+
+    public void setRol(byte rol) {
+        this.rol = rol;
     }
 }
