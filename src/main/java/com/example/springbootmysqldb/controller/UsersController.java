@@ -1,13 +1,9 @@
 package com.example.springbootmysqldb.controller;
 
-import com.example.springbootmysqldb.config.User;
 import com.example.springbootmysqldb.model.Users;
 import com.example.springbootmysqldb.repository.UsersRepository;
 import com.example.springbootmysqldb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
