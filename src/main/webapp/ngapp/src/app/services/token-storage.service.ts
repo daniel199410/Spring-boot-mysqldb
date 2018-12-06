@@ -10,6 +10,8 @@ export class TokenStorageService {
   signOut() {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.clear();
+    console.log("token")
+    console.log(this.getToken());
   }
 
   public saveToken(token: string) {

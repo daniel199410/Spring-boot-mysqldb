@@ -19,11 +19,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(): void {
-    this.authService.attemptAuth('dcatanor', '123').subscribe(data => {
-        console.log(data.headers.get('authorization'));
-        this.token.saveToken(data.headers.get('Authorization'));
-        //this.router.navigate(['login']);
+  login(username: string, password:string): void {
+    this.authService.attemptAuth(username, password).subscribe(
+      data => {
+        const token = data.headers.get('Authorization');
+        if(token) {
+          this.token.saveToken(data.headers.get('Authorization'));
+          this.router.navigate(['home']);
+        } else {
+
+        }
+      }, error1 => {
+        console.log("error");
       }
     )
   }
