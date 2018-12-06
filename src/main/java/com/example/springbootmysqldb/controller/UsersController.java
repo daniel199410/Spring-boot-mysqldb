@@ -6,7 +6,9 @@ import com.example.springbootmysqldb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -35,8 +37,8 @@ public class UsersController {
         return usersRepository.save(user);
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "works";
+    @GetMapping(value = "/test", produces = "application/json")
+    public Map<String, String> test(){
+        return Collections.singletonMap("response", "works");
     }
 }

@@ -9,6 +9,7 @@ import {AuthService} from "./services/auth.service";
 import {TokenStorageService} from "./services/token-storage.service";
 import { HomeComponent } from './components/home/home.component';
 import {InterceptorService} from "./services/interceptor.service";
+import {CanActivate} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import {InterceptorService} from "./services/interceptor.service";
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true
-    }],
+    },
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
