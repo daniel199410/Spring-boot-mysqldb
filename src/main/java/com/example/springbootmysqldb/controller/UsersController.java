@@ -34,4 +34,9 @@ public class UsersController {
     public Users save(@RequestBody final Users user) {
         return usersRepository.save(user);
     }
+
+    @GetMapping("/test")
+    public String test(){
+        return "works";
+    }
 }
