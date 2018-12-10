@@ -1,5 +1,7 @@
 package com.example.springbootmysqldb.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,8 +20,9 @@ public class Users{
     private byte rol;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private UsersContact usersContact;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Queries> queries;
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Solicitud> solicitudes;
 
     public Users(long user_id) {
         this.id = user_id;
@@ -69,13 +72,14 @@ public class Users{
         this.usersContact = usersContact;
     }
 
-    public List<Queries> getQueries() {
-        return queries;
+    public List<Solicitud> getSolicitudes() {
+        return solicitudes;
     }
 
-    public void setQueries(List<Queries> queries) {
-        for(Queries query: queries) {
-            this.queries.add(query);
+    public void setSolicitudes(List<Solicitud> solicitudes) {
+        for(Solicitud solicitud: solicitudes) {
+            this.solicitudes.add(solicitud);
+            solicitud.setUser(this);
         }
     }
 

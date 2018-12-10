@@ -15,7 +15,7 @@ public class ArchivoGenerado {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cdconsulta")
-    private Queries consulta;
+    private Solicitud consulta;
 
     @Column(name = "dstipo_documento_empresa")
     private String tipoDocumentoEmpresa;
@@ -44,7 +44,7 @@ public class ArchivoGenerado {
     public ArchivoGenerado() {
     }
 
-    public ArchivoGenerado(Queries consulta, String tipoDocumentoEmpresa, int documentoEmpresa, String tipoPlanilla, String periodoCotizacion, String periodoServicio, int tipoArchivo, String ubicacion, Date fechaCracion) {
+    public ArchivoGenerado(Solicitud consulta, String tipoDocumentoEmpresa, int documentoEmpresa, String tipoPlanilla, String periodoCotizacion, String periodoServicio, int tipoArchivo, String ubicacion, Date fechaCracion) {
         this.consulta = consulta;
         this.tipoDocumentoEmpresa = tipoDocumentoEmpresa;
         this.documentoEmpresa = documentoEmpresa;
@@ -64,11 +64,11 @@ public class ArchivoGenerado {
         this.archivoGenerado = archivoGenerado;
     }
 
-    public Queries getConsulta() {
+    public Solicitud getConsulta() {
         return consulta;
     }
 
-    public void setConsulta(Queries consulta) {
+    public void setConsulta(Solicitud consulta) {
         this.consulta = consulta;
     }
 
