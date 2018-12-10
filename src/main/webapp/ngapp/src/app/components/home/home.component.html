@@ -1,6 +1,46 @@
-<p>
-  home works!
-</p>
-<button type = "button" (click)="logOut()">Log out</button>
-<button type="button" (click)="about()">Ir a about</button>
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div class="row">
+    <section class="col  mr-4">
+      <section>
+        <h1>Perfil</h1>
+        <article class="d-flex justify-content-between">
+          <strong>nombre</strong>
+          <p>{{ user.name }}</p>
+        </article>
+        <article class="d-flex justify-content-between">
+          <strong>Equipo</strong>
+          <p>{{ user.teamName }}</p>
+        </article>
+      </section>
+      <section>
+        <h1>Contacto</h1>
+        <article class="d-flex justify-content-between">
+          <strong>Teléfono</strong>
+          <p>{{ user.userContact.phone }}</p>
+        </article>
+      </section>
+    </section>
+    <section class="col-lg-7">
+      <section>
+        <h1 class="mb-5">Consultas</h1>
+        <section *ngFor="let query of user.queries" class="mb-3">
+          <article class="d-flex justify-content-between">
+            <strong>Tipo de solicitud</strong>
+            <p>{{ query.tipoSolicitud }}</p>
+          </article>
+          <article class="d-flex justify-content-between">
+            <strong>Fecha de creación</strong>
+            <p>{{ query.fechaCreacion }}</p>
+          </article>
+          <article class="d-flex justify-content-between">
+            <strong>Intentos</strong>
+            <p>{{ query.cantidadIntentos }}</p>
+          </article>
+        </section>
+      </section>
+    </section>
+  </div>
+  <button type = "button" (click)="logOut()">Log out</button>
+</div>
 <router-outlet></router-outlet>
