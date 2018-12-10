@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "TPP_ARCHIVO_GENERADO")
 public class ArchivoGenerado {
 
     @Id
@@ -71,7 +72,7 @@ public class ArchivoGenerado {
     public void setConsulta(Solicitud consulta) {
         this.consulta = consulta;
     }
-
+    
     public String getTipoDocumentoEmpresa() {
         return tipoDocumentoEmpresa;
     }
