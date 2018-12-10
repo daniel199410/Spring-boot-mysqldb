@@ -10,12 +10,14 @@ import {TokenStorageService} from "./services/token-storage.service";
 import { HomeComponent } from './components/home/home.component';
 import {InterceptorService} from "./services/interceptor.service";
 import {CanActivate} from "@angular/router";
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
