@@ -33,7 +33,7 @@ public class Usuario {
     private Integer cargo;
     @Column(name = "cdrol", nullable = false, unique = false, precision = 20)
     private Byte rol;
-    @Column(name = "dscontrasena", nullable = false, unique = false, length = 50)
+    @Column(name = "dscontrasena", nullable = false, unique = false, length = 30)
     private String contrasena;
     @Column(name = "fefecha_creacion", nullable = false, unique = false)
     private Date fechaCreacion;
@@ -47,26 +47,15 @@ public class Usuario {
 
     public Usuario() { }
 
-    
+    public Long getCodigo() { return codigo; }
 
-    public Long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
+    public void setCodigo(Long codigo) { this.codigo = codigo; }
 
     public List<Solicitud> getSolicitudes() {
         return solicitudes;
     }
 
-    public void setSolicitudes(List<Solicitud> solicitudes) {
-        for(Solicitud solicitud: solicitudes) {
-            this.solicitudes.add(solicitud);
-            solicitud.setUser(this);
-        }
-    }
+    public void setSolicitudes(List<Solicitud> solicitudes) { this.solicitudes = solicitudes; }
 
     public String getTipoDocumento() {
         return tipoDocumento;
