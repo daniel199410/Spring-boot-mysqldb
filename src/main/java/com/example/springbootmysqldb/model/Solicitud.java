@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "PPT_SOLICITUD")
+@Table(name = "TPP_SOLICITUD")
 public class Solicitud {
     @Id
     @GeneratedValue
@@ -17,7 +17,7 @@ public class Solicitud {
     @JoinColumn(name = "cdusuario")
     private Usuario usuario;
     @Column(name = "cdtipo_solicitud", nullable = false)
-    private String tipoSolicitud;
+    private String tipo;
     @Column(name = "dsubicacion", unique = true, nullable = false)
     private String ubicacion;
     @Column(name = "nmcantidad_intentos", nullable = false)
@@ -44,12 +44,12 @@ public class Solicitud {
         this.usuario = usuario;
     }
 
-    public String getTipoSolicitud() {
-        return tipoSolicitud;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTipoSolicitud(String tipoSolicitud) {
-        this.tipoSolicitud = tipoSolicitud;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getUbicacion() {

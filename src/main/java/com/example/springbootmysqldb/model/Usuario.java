@@ -11,50 +11,49 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue
-    @Column(name = "cdUsuario")
-    private long id;
-    @Column(name = "dstipo_codumento", nullable = false)
+    @Column(name = "cdusuario")
+    private Long codigo;
+    @Column(name = "dstipo_codumento", nullable = false, unique = false, length = 2)
     private String tipoDocumento;
-    @Column(name = "dsdocumento", nullable = false, unique = true)
+    @Column(name = "dsdocumento", nullable = false, unique = true, length = 16)
     private String documento;
-    @Column(name = "dsprimer_nombre", nullable = false)
+    @Column(name = "dsprimer_nombre", nullable = false, unique = false, length = 30)
     private String primerNombre;
-    @Column(name = "dssegundo_nombre")
+    @Column(name = "dssegundo_nombre", nullable = false, unique = false, length = 30)
     private String segundoNombre;
-    @Column(name = "dsprimer_apellido", nullable = false)
+    @Column(name = "dsprimer_apellido", nullable = false, unique = false, length = 30)
     private String primerApellido;
-    @Column(name = "dssegundo_apellido", nullable = false)
+    @Column(name = "dssegundo_apellido", nullable = false, unique = false, length = 30)
     private String segundoApellido;
-    @Column(name = "dscorreo_electronico", nullable = false)
+    @Column(name = "dscorreo_electronico", nullable = false, unique = false, length = 50)
     private String correo;
-    @Column(name = "cdarea", nullable = false)
+    @Column(name = "cdarea", nullable = false, unique = false, precision = 20)
     private Integer area;
-    @Column(name = "cdcargo", nullable = false)
+    @Column(name = "cdcargo", nullable = false, unique = false, precision = 20)
     private Integer cargo;
-    @Column(name = "cdrol", nullable = false)
+    @Column(name = "cdrol", nullable = false, unique = false, precision = 20)
     private Byte rol;
-    @Column(name = "dscontrasena", nullable = false)
+    @Column(name = "dscontrasena", nullable = false, unique = false, length = 50)
     private String contrasena;
-    @Column(name = "fecha_creacion", nullable = false)
+    @Column(name = "fefecha_creacion", nullable = false, unique = false)
     private Date fechaCreacion;
     @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Solicitud> solicitudes;
 
-    public Usuario(long user_id) {
-        this.id = user_id;
+    public Usuario(Long codigo) {
+        this.codigo = codigo;
     }
 
-    public Usuario() {
+    public Usuario() { }
 
+
+    public Long getCodigo() {
+        return codigo;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
     }
 
     public List<Solicitud> getSolicitudes() {
