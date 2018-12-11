@@ -12,65 +12,53 @@ public class ArchivoGenerado {
     @Id
     @GeneratedValue
     @Column(name = "cdarchivo_generado")
-    private int archivoGenerado;
+    private Integer archivoGenerado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cdconsulta")
-    private Solicitud consulta;
+    @JoinColumn(name = "cdsolicitud", nullable = false, unique = false)
+    private Solicitud solicitud;
 
-    @Column(name = "dstipo_documento_empresa")
+    @Column(name = "dstipo_documento_empresa", nullable = true, unique = false, length = 2)
     private String tipoDocumentoEmpresa;
 
-    @Column(name = "dsdocumento_empresa")
-    private int documentoEmpresa;
+    @Column(name = "dsdocumento_empresa", nullable = true, unique = false, length = 16)
+    private String documentoEmpresa;
 
-    @Column(name = "dstipo_planilla", nullable = false)
+    @Column(name = "dstipo_planilla", nullable = true, unique = false, length = 1)
     private String tipoPlanilla;
 
-    @Column(name = "dsperiodo_cotizacion")
+    @Column(name = "dsperiodo_cotizacion", nullable = true, unique = false, length = 15)
     private String periodoCotizacion;
 
-    @Column(name = "dsperiodo_servicio")
+    @Column(name = "dsperiodo_servicio", nullable = true, unique = false, length = 15)
     private String periodoServicio;
 
-    @Column(name = "cdtipo_archivo", nullable = false)
-    private int tipoArchivo;
+    @Column(name = "cdtipo_archivo", nullable = false, unique = false, precision = 10)
+    private Integer tipoArchivo;
 
-    @Column(name = "dsubicacion", nullable = false, unique = true)
+    @Column(name = "dsubicacion", nullable = false, unique = true, length = 50)
     private String ubicacion;
 
-    @Column(name = "fefecha_creacion", nullable = false)
+    @Column(name = "fefecha_creacion", nullable = false, unique = false)
     private Date fechaCracion;
 
     public ArchivoGenerado() {
     }
 
-    public ArchivoGenerado(Solicitud consulta, String tipoDocumentoEmpresa, int documentoEmpresa, String tipoPlanilla, String periodoCotizacion, String periodoServicio, int tipoArchivo, String ubicacion, Date fechaCracion) {
-        this.consulta = consulta;
-        this.tipoDocumentoEmpresa = tipoDocumentoEmpresa;
-        this.documentoEmpresa = documentoEmpresa;
-        this.tipoPlanilla = tipoPlanilla;
-        this.periodoCotizacion = periodoCotizacion;
-        this.periodoServicio = periodoServicio;
-        this.tipoArchivo = tipoArchivo;
-        this.ubicacion = ubicacion;
-        this.fechaCracion = fechaCracion;
-    }
-
-    public int getArchivoGenerado() {
+    public Integer getArchivoGenerado() {
         return archivoGenerado;
     }
 
-    public void setArchivoGenerado(int archivoGenerado) {
+    public void setArchivoGenerado(Integer archivoGenerado) {
         this.archivoGenerado = archivoGenerado;
     }
 
-    public Solicitud getConsulta() {
-        return consulta;
+    public Solicitud getSolicitud() {
+        return solicitud;
     }
 
-    public void setConsulta(Solicitud consulta) {
-        this.consulta = consulta;
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
     
     public String getTipoDocumentoEmpresa() {
@@ -81,11 +69,11 @@ public class ArchivoGenerado {
         this.tipoDocumentoEmpresa = tipoDocumentoEmpresa;
     }
 
-    public int getDocumentoEmpresa() {
+    public String getDocumentoEmpresa() {
         return documentoEmpresa;
     }
 
-    public void setDocumentoEmpresa(int documentoEmpresa) {
+    public void setDocumentoEmpresa(String documentoEmpresa) {
         this.documentoEmpresa = documentoEmpresa;
     }
 
@@ -113,11 +101,11 @@ public class ArchivoGenerado {
         this.periodoServicio = periodoServicio;
     }
 
-    public int getTipoArchivo() {
+    public Integer getTipoArchivo() {
         return tipoArchivo;
     }
 
-    public void setTipoArchivo(int tipoArchivo) {
+    public void setTipoArchivo(Integer tipoArchivo) {
         this.tipoArchivo = tipoArchivo;
     }
 

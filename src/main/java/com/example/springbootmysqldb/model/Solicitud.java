@@ -25,11 +25,11 @@ public class Solicitud {
     @Column(name = "dsubicacion", nullable = false, unique = true, length = 50)
     private String ubicacion;
 
-    @Column(name = "cdestado", nullable = false, unique = false, precision = 10)
-    private Integer estado;
+    @Column(name = "cdestado", nullable = false, unique = false, precision = 1)
+    private Byte estado;
 
-    @Column(name = "nmcantidad_intentos", nullable = false, unique = false, precision = 100)
-    private Long cantidadIntentos;
+    @Column(name = "nmcantidad_intentos", nullable = false, unique = false, precision = 1)
+    private byte cantidadIntentos;
 
     @Column(name = "fefecha_creacion", nullable = false, unique = false)
     private Date fechaCreacion;
@@ -69,19 +69,19 @@ public class Solicitud {
         this.ubicacion = ubicacion;
     }
 
-    public Integer getEstado() {
+    public Byte getEstado() {
         return estado;
     }
 
-    public void setEstado(Integer estado) {
+    public void setEstado(Byte estado) {
         this.estado = estado;
     }
 
-    public Long getCantidadIntentos() {
+    public Byte getCantidadIntentos() {
         return cantidadIntentos;
     }
 
-    public void setCantidadIntentos(Long cantidadIntentos) {
+    public void setCantidadIntentos(Byte cantidadIntentos) {
         this.cantidadIntentos = cantidadIntentos;
     }
 
