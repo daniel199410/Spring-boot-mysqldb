@@ -16,7 +16,7 @@ public class Solicitud {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cdusuario")
+    @JoinColumn(name = "cdusuario", nullable = false)
     private Usuario usuario;
 
     @Column(name = "cdtipo_solicitud", nullable = false, unique = false, precision = 10)
