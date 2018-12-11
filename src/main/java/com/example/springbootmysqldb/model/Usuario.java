@@ -13,7 +13,7 @@ public class Usuario {
     @GeneratedValue
     @Column(name = "cdusuario")
     private Long codigo;
-    @Column(name = "dstipo_codumento", nullable = false, unique = false, length = 2)
+    @Column(name = "dstipo_documento", nullable = false, unique = false, length = 2)
     private String tipoDocumento;
     @Column(name = "dsdocumento", nullable = false, unique = true, length = 16)
     private String documento;

@@ -27,6 +27,6 @@ public class SolicitudesController {
 
     @GetMapping("/{userId}")
     public List<Solicitud> getSolicitud(@PathVariable("userId") Long userId) {
-        return solicitudRepository.findByUser(usersRepository.findById(userId).get());
+        return solicitudRepository.findByUsuario(usersRepository.findById(userId).get());
     }
 }
