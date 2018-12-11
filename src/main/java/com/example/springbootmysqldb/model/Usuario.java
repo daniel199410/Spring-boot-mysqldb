@@ -9,34 +9,48 @@ import java.util.List;
 @Entity
 @Table(name = "TPP_USUARIO")
 public class Usuario {
+
     @Id
     @GeneratedValue
     @Column(name = "cdusuario")
     private Long codigo;
+    
     @Column(name = "dstipo_codumento", nullable = false, unique = false, length = 2)
     private String tipoDocumento;
+
     @Column(name = "dsdocumento", nullable = false, unique = true, length = 16)
     private String documento;
+
     @Column(name = "dsprimer_nombre", nullable = false, unique = false, length = 30)
     private String primerNombre;
+
     @Column(name = "dssegundo_nombre", nullable = true, unique = false, length = 30)
     private String segundoNombre;
+
     @Column(name = "dsprimer_apellido", nullable = false, unique = false, length = 30)
     private String primerApellido;
+
     @Column(name = "dssegundo_apellido", nullable = true, unique = false, length = 30)
     private String segundoApellido;
+
     @Column(name = "dscorreo_electronico", nullable = false, unique = false, length = 50)
     private String correo;
+
     @Column(name = "cdarea", nullable = false, unique = false, precision = 20)
     private Integer area;
+
     @Column(name = "cdcargo", nullable = false, unique = false, precision = 20)
     private Integer cargo;
+
     @Column(name = "cdrol", nullable = false, unique = false, precision = 20)
     private Byte rol;
+
     @Column(name = "dscontrasena", nullable = false, unique = false, length = 30)
     private String contrasena;
+
     @Column(name = "fefecha_creacion", nullable = false, unique = false)
     private Date fechaCreacion;
+
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Solicitud> solicitudes;
@@ -47,15 +61,21 @@ public class Usuario {
 
     public Usuario() { }
 
-    public Long getCodigo() { return codigo; }
+    public Long getCodigo() {
+        return codigo;
+    }
 
-    public void setCodigo(Long codigo) { this.codigo = codigo; }
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
 
     public List<Solicitud> getSolicitudes() {
         return solicitudes;
     }
 
-    public void setSolicitudes(List<Solicitud> solicitudes) { this.solicitudes = solicitudes; }
+    public void setSolicitudes(List<Solicitud> solicitudes) {
+        this.solicitudes = solicitudes;
+    }
 
     public String getTipoDocumento() {
         return tipoDocumento;
