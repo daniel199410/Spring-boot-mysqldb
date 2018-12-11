@@ -19,11 +19,11 @@ public class Usuario {
     private String documento;
     @Column(name = "dsprimer_nombre", nullable = false, unique = false, length = 30)
     private String primerNombre;
-    @Column(name = "dssegundo_nombre", nullable = false, unique = false, length = 30)
+    @Column(name = "dssegundo_nombre", nullable = true, unique = false, length = 30)
     private String segundoNombre;
     @Column(name = "dsprimer_apellido", nullable = false, unique = false, length = 30)
     private String primerApellido;
-    @Column(name = "dssegundo_apellido", nullable = false, unique = false, length = 30)
+    @Column(name = "dssegundo_apellido", nullable = true, unique = false, length = 30)
     private String segundoApellido;
     @Column(name = "dscorreo_electronico", nullable = false, unique = false, length = 50)
     private String correo;

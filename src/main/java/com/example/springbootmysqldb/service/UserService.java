@@ -36,9 +36,9 @@ public class UserService implements UserDetailsService {
         return auths;
     }
 
-    public boolean isAuthorized(Long id) {
+    public boolean isAuthorized(Long codigo) {
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         Usuario user = usersRepository.findByDocumento(userName);
-        return user.getId() == id;
+        return user.getCodigo() == codigo;
     }
 }
