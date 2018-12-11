@@ -8,21 +8,30 @@ import java.util.Date;
 @Entity
 @Table(name = "TPP_SOLICITUD")
 public class Solicitud {
+
     @Id
     @GeneratedValue
     @Column(name = "cdsolicitud")
     private Long codigo;
+
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cdusuario")
     private Usuario usuario;
-    @Column(name = "cdtipo_solicitud", nullable = false)
+
+    @Column(name = "cdtipo_solicitud", nullable = false, unique = false, precision = 10)
     private String tipo;
-    @Column(name = "dsubicacion", unique = true, nullable = false)
+
+    @Column(name = "dsubicacion", nullable = false, unique = true, length = 50)
     private String ubicacion;
-    @Column(name = "nmcantidad_intentos", nullable = false)
+
+    @Column(name = "cdestado", nullable = false, unique = false, precision = 10)
+    private Integer estado;
+
+    @Column(name = "nmcantidad_intentos", nullable = false, unique = false, precision = 100)
     private Long cantidadIntentos;
-    @Column(name = "fefecha_creacion", nullable = false)
+
+    @Column(name = "fefecha_creacion", nullable = false, unique = false)
     private Date fechaCreacion;
 
     public Solicitud() {
@@ -36,11 +45,11 @@ public class Solicitud {
         this.codigo = codigo;
     }
 
-    public Usuario getUser() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUser(Usuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
@@ -58,6 +67,14 @@ public class Solicitud {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public Integer getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Integer estado) {
+        this.estado = estado;
     }
 
     public Long getCantidadIntentos() {
