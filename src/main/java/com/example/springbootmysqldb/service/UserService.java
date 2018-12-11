@@ -1,6 +1,6 @@
 package com.example.springbootmysqldb.service;
 
-import com.example.springbootmysqldb.model.Users;
+import com.example.springbootmysqldb.model.Usuario;
 import com.example.springbootmysqldb.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,9 +22,9 @@ public class UserService implements UserDetailsService {
     private UsersRepository usersRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users user = usersRepository.findByUserName(username);
-        return new User(user.getUserName(), user.getPassword(), user.isActive(), user.isActive(), user.isActive(), user.isActive(), buildGranted(user.getRol()));
+    public UserDetails loadUserByUsername(String documento) throws UsernameNotFoundException {
+        Usuario user = usersRepository.findByDocumento(documento);
+        return new User(user.getDocumento(), user.getContrasena(), true, true, true, true, buildGranted(user.getRol()));
     }
 
     public List<GrantedAuthority> buildGranted(byte rol) {
@@ -38,7 +38,7 @@ public class UserService implements UserDetailsService {
 
     public boolean isAuthorized(Long id) {
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
-        Users user = usersRepository.findByUserName(userName);
+        Usuario user = usersRepository.findByDocumento(userName);
         return user.getId() == id;
     }
 }

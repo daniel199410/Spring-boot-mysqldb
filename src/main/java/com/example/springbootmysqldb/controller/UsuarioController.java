@@ -1,6 +1,6 @@
 package com.example.springbootmysqldb.controller;
 
-import com.example.springbootmysqldb.model.Users;
+import com.example.springbootmysqldb.model.Usuario;
 import com.example.springbootmysqldb.repository.UsersRepository;
 import com.example.springbootmysqldb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,29 +12,29 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "rest/users")
-public class UsersController {
+@RequestMapping(value = "rest/usuarios")
+public class UsuarioController {
     @Autowired
     private UsersRepository usersRepository;
     @Autowired
     private UserService userService;
 
-    @GetMapping("/all")
-    public List<Users> getAll() {
+    @GetMapping("/todos")
+    public List<Usuario> getAll() {
         return usersRepository.findAll();
     }
 
-    @GetMapping("/user/{id}")
-    public Optional<Users> getUser(@PathVariable("id") Long id) {
+    @GetMapping("/usuario/{id}")
+    public Optional<Usuario> getUser(@PathVariable("id") Long id) {
         if(userService.isAuthorized(id)) {
             return usersRepository.findById(id);
         }
         return null;
     }
 
-    @PostMapping("create")
-    public Users save(@RequestBody final Users user) {
-        return usersRepository.save(user);
+    @PostMapping("crear")
+    public Usuario save(@RequestBody final Usuario usuario) {
+        return usersRepository.save(usuario);
     }
 
     @GetMapping(value = "/test", produces = "application/json")

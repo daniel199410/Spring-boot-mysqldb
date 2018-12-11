@@ -1,22 +1,22 @@
 package com.example.springbootmysqldb.config;
 
 public class User {
-    private String username;
-    private String password;
+    private String documento;
+    private String contrasena;
 
-    public String getUsername() {
-        return username;
+    public String getDocumento() {
+        return documento;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }

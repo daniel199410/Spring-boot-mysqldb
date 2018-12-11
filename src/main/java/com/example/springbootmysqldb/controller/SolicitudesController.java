@@ -1,7 +1,7 @@
 package com.example.springbootmysqldb.controller;
 
 import com.example.springbootmysqldb.model.Solicitud;
-import com.example.springbootmysqldb.model.Users;
+import com.example.springbootmysqldb.model.Usuario;
 import com.example.springbootmysqldb.repository.SolicitudRepository;
 import com.example.springbootmysqldb.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ public class SolicitudesController {
     private UsersRepository usersRepository;
 
     @PostMapping("/{userId}")
-    public Users createQuery(@PathVariable("userId") Long userId, @RequestBody List<Solicitud> query) {
-        Users user = usersRepository.findById(userId).get();
+    public Usuario createQuery(@PathVariable("userId") Long userId, @RequestBody List<Solicitud> query) {
+        Usuario user = usersRepository.findById(userId).get();
         user.setSolicitudes(query);
         return usersRepository.save(user);
     }

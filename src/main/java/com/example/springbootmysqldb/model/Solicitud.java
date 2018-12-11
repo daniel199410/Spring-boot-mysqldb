@@ -1,21 +1,21 @@
 package com.example.springbootmysqldb.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "PPT_SOLICITUD")
 public class Solicitud {
     @Id
     @GeneratedValue
-    @Column(name = "cdSolicitud")
-    private Long cdSolicitud;
+    @Column(name = "cdsolicitud")
+    private Long codigo;
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cdusuario")
-    private Users user;
+    private Usuario usuario;
     @Column(name = "cdtipo_solicitud", nullable = false)
     private String tipoSolicitud;
     @Column(name = "dsubicacion", unique = true, nullable = false)
@@ -28,20 +28,20 @@ public class Solicitud {
     public Solicitud() {
     }
 
-    public Long getCdSolicitud() {
-        return cdSolicitud;
+    public Long getCodigo() {
+        return codigo;
     }
 
-    public void setCdSolicitud(Long cdSolicitud) {
-        this.cdSolicitud = cdSolicitud;
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
     }
 
-    public Users getUser() {
-        return user;
+    public Usuario getUser() {
+        return usuario;
     }
 
-    public void setUser(Users user) {
-        this.user = user;
+    public void setUser(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getTipoSolicitud() {

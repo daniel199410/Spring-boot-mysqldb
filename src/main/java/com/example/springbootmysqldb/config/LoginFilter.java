@@ -28,8 +28,8 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
         User user = new ObjectMapper().readValue(body, User.class);
         try {
             return getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(
-                    user.getUsername(),
-                    user.getPassword(),
+                    user.getDocumento(),
+                    user.getContrasena(),
                     Collections.emptyList()
             ));
         } catch (Exception e) {
