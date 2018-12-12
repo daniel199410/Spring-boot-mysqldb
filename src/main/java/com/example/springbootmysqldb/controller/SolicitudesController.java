@@ -19,10 +19,10 @@ public class SolicitudesController {
     private UsersRepository usersRepository;
 
     @PostMapping("/{userId}")
-    public Usuario createQuery(@PathVariable("userId") Long userId, @RequestBody List<Solicitud> query) {
-        Usuario user = usersRepository.findById(userId).get();
-        user.setSolicitudes(query);
-        return usersRepository.save(user);
+    public Solicitud createQuery(@PathVariable("userId") Long codigoUsuario, @RequestBody Solicitud solicitud) {
+        Usuario usuario = usersRepository.findById(codigoUsuario).get();
+        solicitud.setUsuario(usuario);
+        return solicitudRepository.save(solicitud);
     }
 
     @GetMapping("/{userId}")
