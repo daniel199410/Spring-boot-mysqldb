@@ -20,7 +20,7 @@ public class Solicitud {
     private Usuario usuario;
 
     @Column(name = "cdtipo_solicitud", nullable = false, unique = false, precision = 10)
-    private String tipo;
+    private Integer tipo;
 
     @Column(name = "dsubicacion", nullable = false, unique = true, length = 50)
     private String ubicacion;
@@ -53,11 +53,11 @@ public class Solicitud {
         this.usuario = usuario;
     }
 
-    public String getTipo() {
+    public Integer getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Integer tipo) {
         this.tipo = tipo;
     }
 
