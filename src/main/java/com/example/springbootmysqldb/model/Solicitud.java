@@ -15,7 +15,7 @@ public class Solicitud {
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cdusuario")
-    private Usuario usuario;
+    private Usuario user;
     @Column(name = "cdtipo_solicitud", nullable = false)
     private String tipoSolicitud;
     @Column(name = "dsubicacion", unique = true, nullable = false)
@@ -37,11 +37,11 @@ public class Solicitud {
     }
 
     public Usuario getUser() {
-        return usuario;
+        return user;
     }
 
     public void setUser(Usuario usuario) {
-        this.usuario = usuario;
+        this.user = usuario;
     }
 
     public String getTipoSolicitud() {
